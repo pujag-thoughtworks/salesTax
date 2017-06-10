@@ -1,15 +1,15 @@
 package com.tw.puja;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * Class to hold all the shopping items.
  */
 public class ShoppingCart {
-    private HashMap<Item,Integer> itemWithQuantity;
+    private ArrayList<Item> items;
 
     ShoppingCart() {
-        itemWithQuantity =new HashMap<>();
+        items =new ArrayList<>();
     }
 
     public void addItem(String inputString) {
@@ -18,12 +18,12 @@ public class ShoppingCart {
         int itemQuantity= Integer.parseInt(inputString.substring(0,indexOfFirstSpace));
         inputString=inputString.substring(indexOfFirstSpace+1);
         String[] itemString=inputString.split(" at ");
-        Item item=new Item(itemString[0],Double.parseDouble(itemString[1]));
-        itemWithQuantity.put(item,itemQuantity);
+        Item item=new Item(itemString[0],Double.parseDouble(itemString[1]),itemQuantity);
+        items.add(item);
 
     }
 
-    public HashMap<Item,Integer> getItems() {
-        return itemWithQuantity;
+    public ArrayList<Item> getItems() {
+        return items;
     }
 }
