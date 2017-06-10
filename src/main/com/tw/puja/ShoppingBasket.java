@@ -9,16 +9,16 @@ public class ShoppingBasket {
     private ArrayList<Item> items;
 
     ShoppingBasket() {
-        items =new ArrayList<>();
+        items = new ArrayList<>();
     }
 
     public void addItem(String inputString) {
-        inputString=inputString.trim();
-        int indexOfFirstSpace=inputString.indexOf(" ");
-        int itemQuantity= Integer.parseInt(inputString.substring(0,indexOfFirstSpace));
-        inputString=inputString.substring(indexOfFirstSpace+1);
-        String[] itemString=inputString.split(" at ");
-        Item item=new Item(itemString[0],Double.parseDouble(itemString[1]),itemQuantity);
+        inputString = inputString.trim();
+        int indexOfFirstSpace = inputString.indexOf(" ");
+        int itemQuantity = Integer.parseInt(inputString.substring(0, indexOfFirstSpace));
+        inputString = inputString.substring(indexOfFirstSpace + 1);
+        String[] itemString = inputString.split(" at ");
+        Item item = new Item(itemString[0], Double.parseDouble(itemString[1]), itemQuantity);
         items.add(item);
 
     }

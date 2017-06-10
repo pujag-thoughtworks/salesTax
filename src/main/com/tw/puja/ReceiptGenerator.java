@@ -11,28 +11,30 @@ public class ReceiptGenerator {
     ShoppingBasket shoppingBasket;
     ArrayList<String> receipt;
 
-    ReceiptGenerator(ShoppingBasket shoppingBasket)  {
-        if(shoppingBasket ==null)
+    ReceiptGenerator(ShoppingBasket shoppingBasket) {
+        if (shoppingBasket == null)
             throw new IllegalArgumentException();
         this.shoppingBasket = shoppingBasket;
-        receipt=new ArrayList<>();
+        receipt = new ArrayList<>();
     }
 
-    public ArrayList<String> generateReceipt()  {
-        ArrayList<Item> items= shoppingBasket.getItems();
-        if(items.isEmpty())
+
+    public ArrayList<String> generateReceipt() {
+        ArrayList<Item> items = shoppingBasket.getItems();
+        if (items.isEmpty())
             throw new EmptyItemListException();
-        double totalTax=0;
-        double totalAmount=0;
-        for(Item item:items) {
-            String itemDetails=item.toString() +" - " +item.getTaxInclusivePrice();
+        double totalTax = 0;
+        double totalAmount = 0;
+        for (Item item : items) {
+            double taxInclusivePrice=item.getTaxInclusivePrice();
+            String itemDetails = item.toString() + " - " + taxInclusivePrice;
             receipt.add(itemDetails);
-            totalTax+=item.getSalesTax();
-            totalAmount+=item.getTaxInclusivePrice();
+            totalTax += item.getSalesTax();
+            totalAmount += item.getTaxInclusivePrice();
         }
-        String taxDetails="Sales Taxes - " +totalTax;
+        String taxDetails = "Sales Taxes - " + totalTax;
         receipt.add(taxDetails);
-        String total="Total - " +totalAmount;
+        String total = "Total - " + totalAmount;
         receipt.add(total);
 
         return receipt;
