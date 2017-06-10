@@ -39,12 +39,14 @@ public class Item {
         return tax;
     }
 
-    public double getPrice() {
+    public double getTaxInclusivePrice() {
         return (itemPrice+ computeSalesTax())*noOfCopies;
     }
 
     public double getSalesTax() {
         return noOfCopies*computeSalesTax();
     }
+
+    
 
 }

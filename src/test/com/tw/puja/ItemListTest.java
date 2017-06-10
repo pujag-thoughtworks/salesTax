@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-public class ShoppingCartTest {
+public class ItemListTest {
     @Test
     public void shouldNotBeEmptyAfterAddingItem() {
-        ShoppingCart cart=new ShoppingCart();
+        ItemList cart=new ItemList();
         cart.addItem("1 book at 12.49");
         ArrayList<Item> cartItems=cart.getItems();
         assertTrue(!cartItems.isEmpty());

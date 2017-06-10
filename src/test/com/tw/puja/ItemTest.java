@@ -28,4 +28,11 @@ public class ItemTest {
         assertEquals(IMPORT_TAX_RATE*priceOfItem3,item3.getSalesTax(),0.005);
 
     }
+    @Test
+    public void shouldProvideTaxInclusivePrice() {
+        double itemPrice=12.9;
+        Item item=new Item("music cd",itemPrice, 1);
+        assertEquals(itemPrice+item.getSalesTax(),item.getTaxInclusivePrice(),0.005);
+
+    }
 }

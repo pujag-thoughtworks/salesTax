@@ -5,10 +5,10 @@ import java.util.ArrayList;
 /**
  * Class to hold all the shopping items.
  */
-public class ShoppingCart {
+public class ItemList {
     private ArrayList<Item> items;
 
-    ShoppingCart() {
+    ItemList() {
         items =new ArrayList<>();
     }
 
