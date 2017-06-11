@@ -1,6 +1,7 @@
 package com.tw.puja;
 
 import com.tw.exceptions.EmptyItemListException;
+import com.tw.exceptions.IllegalInputFormatException;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,8 +20,9 @@ public class ReceiptGeneratorTest {
         ArrayList<String> receipt = receiptGenerator.generateReceipt();
     }
 
+
     @Test
-    public void shouldGenerateDesiredReceiptForGivenShoppingBasket() {
+    public void shouldGenerateDesiredReceiptForGivenShoppingBasket()  throws IllegalInputFormatException{
         ShoppingBasket shoppingBasket = new ShoppingBasket();
         shoppingBasket.addItem("1 book at 12.49");
         shoppingBasket.addItem("1 music CD at 14.99");

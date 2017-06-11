@@ -6,46 +6,29 @@ package com.tw.puja;
 
 public class Item {
     public static final String IMPORTED = "imported ";
-    public static final String[] taxExemptedGoods = {"book", "chocolate", "pill"};
-    public static final int BASIC_TAX_RATE = 10;
-    public static final int IMPORT_TAX_RATE = 5;
     private String itemName;
     private double itemPrice;
     private int noOfCopies;
     private boolean isImported;
+    private boolean isTaxExempted;
 
     Item(String itemName, double itemPrice, int noOfCopies) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.noOfCopies = noOfCopies;
         isImported = itemName.contains(IMPORTED);
+        isTaxExempted= TaxExemptedItems.isTaxExempted(itemName);
+
     }
-
-    public boolean isTaxExempted() {
-        for (String taxExemptedGood : taxExemptedGoods) {
-            if (itemName.contains(taxExemptedGood))
-                return true;
-        }
-        return false;
-    }
-
-
-    private double computeSalesTax() {
-        double tax = 0;
-        if (!isTaxExempted())
-            tax += BASIC_TAX_RATE * itemPrice / 100;
-        if (isImported)
-            tax += IMPORT_TAX_RATE * itemPrice / 100;
-        return tax;
+    public double getSalesTax() {
+        double salesTax=SalesTaxCalculator.calculateTax(itemPrice,isTaxExempted,isImported);
+        return noOfCopies * salesTax;
     }
 
     public double getTaxInclusivePrice() {
-        return (itemPrice + computeSalesTax()) * noOfCopies;
+        return (itemPrice + getSalesTax()) * noOfCopies;
     }
 
-    public double getSalesTax() {
-        return noOfCopies * computeSalesTax();
-    }
 
     @Override
     public String toString() {
@@ -58,5 +41,13 @@ public class Item {
         if (!(item instanceof Item))
             return false;
         return (itemName.equals(item.itemName) && itemPrice == item.itemPrice && noOfCopies == item.noOfCopies);
+    }
+
+    public boolean isTaxExempted() {
+        return isTaxExempted;
+    }
+
+    public boolean isImported() {
+        return isImported;
     }
 }
