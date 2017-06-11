@@ -41,5 +41,5 @@ public class ItemTest {
         Item item2 = new Item(" imported Box of chocolates", 67.2, 1);
         assertEquals(item1, item2);
     }
-    
+
 }

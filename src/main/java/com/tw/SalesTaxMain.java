@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class SalesTaxMain {
     public static void main(String[] args) throws Exception {
+        System.out.println("Inside main");
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
         for(int inputNo=1;inputNo<=3;inputNo++) {
             ShoppingBasket shoppingBasket=new ShoppingBasket();

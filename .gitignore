@@ -1,4 +1,11 @@
 /.idea
 /out
 /salesTax.iml
-
+/.gradle
+/build/
+*.bat
+/settings.gradle
+*.DS_Store
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+.build

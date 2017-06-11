@@ -33,4 +33,9 @@ public class ShoppingBasketTest {
         assertEquals(true,cart.isInputFormatCorrect(exampleString));
     }
 
+    @Test(expected = IllegalInputFormatException.class)
+    public void shouldNotAcceptInputIfNotInFormat() throws IllegalInputFormatException {
+        ShoppingBasket cart=new ShoppingBasket();
+        cart.addItem("chocolate bar at 0.85");
+    }
 }
