@@ -49,7 +49,7 @@ dependencies {
 group = "pujag"
 
 task buildDocker(type: Docker, dependsOn: build) {      // this task will build our Docker image
-    push = false
+    push = true
     applicationName = 'salestax'
     dockerfile = file('Dockerfile')
     tagVersion = System.getenv('TRAVIS_BUILD_NUMBER') ? System.getenv('TRAVIS_BUILD_NUMBER') : 0
