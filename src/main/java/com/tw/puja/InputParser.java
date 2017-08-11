@@ -5,7 +5,9 @@ import com.tw.exceptions.IllegalInputFormatException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * Created by pujag on 6/12/17.
+ */
 public class InputParser {
 
     public boolean isInputFormatCorrect(String input) {
