@@ -27,6 +27,7 @@ public class Item {
 
     public double getTaxInclusivePrice() {
         return (itemPrice + getSalesTax()) * noOfCopies;
+        //
     }
 
 
