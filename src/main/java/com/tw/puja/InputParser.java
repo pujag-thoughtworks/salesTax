@@ -26,6 +26,7 @@ public class InputParser {
         inputString = inputString.substring(indexOfFirstSpace + 1);
         String[] itemString = inputString.split(" at ");
         Item item = new Item(itemString[0], Double.parseDouble(itemString[1]), itemQuantity);
+        // yet another change
         return item;
     }
 }
