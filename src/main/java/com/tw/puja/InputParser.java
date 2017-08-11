@@ -14,6 +14,7 @@ public class InputParser {
         Pattern requiredFormat = Pattern.compile("[1-9]\\d*[\\s\\w]+\\sat\\s\\d+(\\.\\d{1,2})?");
         Matcher matcher = requiredFormat.matcher(input);
         return matcher.matches();
+        // this is new change
     }
     public  Item createItems(String inputString) throws
             IllegalInputFormatException {
