@@ -5,7 +5,7 @@
 package com.tw.puja;
 
 public class Item {
-    public static final String IMPORTED = "imported ";
+    private static final String IMPORTED = "imported ";
     private String itemName;
     private double itemPrice;
     private int noOfCopies;
@@ -17,11 +17,12 @@ public class Item {
         this.itemPrice = itemPrice;
         this.noOfCopies = noOfCopies;
         isImported = itemName.contains(IMPORTED);
-        isTaxExempted= TaxExemptedItems.isTaxExempted(itemName);
+        isTaxExempted = TaxExemptedItems.isTaxExempted(itemName);
 
     }
+
     public double getSalesTax() {
-        double salesTax=SalesTaxCalculator.calculateTax(itemPrice,isTaxExempted,isImported);
+        double salesTax = SalesTaxCalculator.calculateTax(itemPrice, isTaxExempted, isImported);
         return noOfCopies * salesTax;
     }
 

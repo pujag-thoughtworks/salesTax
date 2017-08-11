@@ -22,7 +22,7 @@ public class ReceiptGeneratorTest {
 
 
     @Test
-    public void shouldGenerateDesiredReceiptForGivenShoppingBasket()  throws IllegalInputFormatException{
+    public void shouldGenerateDesiredReceiptForGivenShoppingBasket() throws IllegalInputFormatException {
         ShoppingBasket shoppingBasket = new ShoppingBasket();
         shoppingBasket.addItem("1 book at 12.49");
         shoppingBasket.addItem("1 music CD at 14.99");

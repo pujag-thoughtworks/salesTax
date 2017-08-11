@@ -8,8 +8,8 @@ import static org.junit.Assert.*;
 public class ItemTest {
 
     @Test
-    public  void shouldCheckIfItemtIsTaxExempted() {
-        Item item=new Item("packet of headache pills",9.75,1);
+    public void shouldCheckIfItemtIsTaxExempted() {
+        Item item = new Item("packet of headache pills", 9.75, 1);
         assertTrue(item.isTaxExempted());
     }
 
@@ -23,7 +23,7 @@ public class ItemTest {
     public void shouldProvideCorrectSalesTaxValue() {
         double priceOfItem = 10;
         Item item = new Item(" imported Box of chocolates", priceOfItem, 1);
-        assertEquals(roundOff(IMPORT_TAX_RATE * priceOfItem/100), item.getSalesTax(), 0.00);
+        assertEquals(roundOff(IMPORT_TAX_RATE * priceOfItem / 100), item.getSalesTax(), 0.00);
 
     }
 

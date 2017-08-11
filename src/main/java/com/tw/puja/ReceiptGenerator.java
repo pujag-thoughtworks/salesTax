@@ -26,14 +26,14 @@ public class ReceiptGenerator {
         double totalAmount = 0;
         for (Item item : items) {
             double taxInclusivePrice = item.getTaxInclusivePrice();
-            String itemDetails = item.toString() + " - " + String.format("%.2f",taxInclusivePrice);
+            String itemDetails = item.toString() + " - " + String.format("%.2f", taxInclusivePrice);
             receipt.add(itemDetails);
             totalTax += item.getSalesTax();
             totalAmount += taxInclusivePrice;
         }
-        String taxDetails = "Sales Taxes - " + String.format("%.2f",totalTax);
+        String taxDetails = "Sales Taxes - " + String.format("%.2f", totalTax);
         receipt.add(taxDetails);
-        String total = "Total - " + String.format("%.2f",totalAmount);
+        String total = "Total - " + String.format("%.2f", totalAmount);
         receipt.add(total);
 
         return receipt;

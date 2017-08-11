@@ -11,7 +11,7 @@ public class TaxExemptedItemsTest {
 
     @Test
     public void shouldFindIfGivenItemIsTaxExemptedOrNot() {
-            assertFalse(TaxExemptedItems.isTaxExempted("imported bottle of perfume"));
-            assertTrue(TaxExemptedItems.isTaxExempted("packet of headache pills"));
+        assertFalse(TaxExemptedItems.isTaxExempted("imported bottle of perfume"));
+        assertTrue(TaxExemptedItems.isTaxExempted("packet of headache pills"));
     }
 }

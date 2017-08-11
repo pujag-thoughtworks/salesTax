@@ -14,22 +14,21 @@ import java.util.ArrayList;
 public class SalesTaxMain {
     public static void main(String[] args) throws Exception {
         System.out.println("Inside main");
-        BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
-        for(int inputNo=1;inputNo<=3;inputNo++) {
-            ShoppingBasket shoppingBasket=new ShoppingBasket();
-            String inputString=bufferedReader.readLine();
-                while(inputString.length()!=0) {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        for (int inputNo = 1; inputNo <= 3; inputNo++) {
+            ShoppingBasket shoppingBasket = new ShoppingBasket();
+            String inputString = bufferedReader.readLine();
+            while (inputString.length() != 0) {
                 try {
                     shoppingBasket.addItem(inputString);
-                }
-                catch(IllegalInputFormatException e) {
+                } catch (IllegalInputFormatException e) {
                     System.out.println("Invalid input, Enter again");
                 }
-                inputString=bufferedReader.readLine();
-                }
-            ReceiptGenerator receiptGenerator=new ReceiptGenerator(shoppingBasket);
-            ArrayList<String> receipt=receiptGenerator.generateReceipt();
-            for(String receiptItem:receipt)
+                inputString = bufferedReader.readLine();
+            }
+            ReceiptGenerator receiptGenerator = new ReceiptGenerator(shoppingBasket);
+            ArrayList<String> receipt = receiptGenerator.generateReceipt();
+            for (String receiptItem : receipt)
                 System.out.println(receiptItem);
 
         }
